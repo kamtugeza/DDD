@@ -3,6 +3,7 @@
 module.exports = {
   api: {
     port: 8001,
+    protocol: 'http',
   },
   db: {
     host: '127.0.0.1',
