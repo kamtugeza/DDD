@@ -2,6 +2,7 @@
 
 module.exports = {
   api: {
+    framework: 'native',
     port: 8001,
     protocol: 'http',
   },

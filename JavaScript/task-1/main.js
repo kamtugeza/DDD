@@ -4,6 +4,7 @@ const fsp = require('node:fs').promises;
 const path = require('node:path');
 const config = require('./config.js');
 const staticServer = require('./static.js');
+const server = require(`./engines/${config.api.framework}/${config.api.protocol}`);
 const load = require('./load.js');
 const db = require('./db.js')(config.db);
 const hash = require('./hash.js');
@@ -16,10 +17,6 @@ const sandbox = {
 };
 const apiPath = path.join(process.cwd(), './api');
 const routing = {};
-const server = {
-  http: require('./http'),
-  ws: require('./ws'),
-};
 
 (async () => {
   const files = await fsp.readdir(apiPath);
@@ -30,5 +27,5 @@ const server = {
     routing[serviceName] = await load(filePath, sandbox);
   }
   staticServer('./static', config.static);
-  server[config.api.protocol]?.(routing, config.api);
+  server(routing, config.api);
 })();
