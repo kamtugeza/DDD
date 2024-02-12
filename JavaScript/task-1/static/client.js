@@ -75,6 +75,6 @@ const scaffold = (url, structure) => {
     },
   });
   // await api.user.create({ login: 'm3', password: 'test' });
-  const data = await api.user.read();
+  const data = await api.user.read(4);
   console.log(data);
 })();

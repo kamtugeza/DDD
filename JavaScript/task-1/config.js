@@ -2,9 +2,9 @@
 
 module.exports = {
   api: {
-    framework: 'native',
+    framework: 'fastify', // native | fastify
     port: 8001,
-    protocol: 'http',
+    protocol: 'http', // http | wc
   },
   db: {
     host: '127.0.0.1',
