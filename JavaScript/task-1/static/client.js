@@ -52,7 +52,7 @@ const scaffold = (url, structure) => {
 }
 
 (async () => {
-  const api = await scaffold('http://localhost:8001', {
+  const api = await scaffold('ws://localhost:8001', {
     city: {
       create: ['record'],
       delete: ['id'],
@@ -75,6 +75,6 @@ const scaffold = (url, structure) => {
     },
   });
   // await api.user.create({ login: 'm3', password: 'test' });
-  const data = await api.user.read(4);
-  console.log(data);
+  const data = await api.user.read();
+  console.log('response', data);
 })();
