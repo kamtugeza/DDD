@@ -2,7 +2,7 @@
 
 module.exports = {
   api: {
-    framework: 'fastify', // native | fastify
+    framework: 'native', // native | fastify
     port: 8001,
     protocol: 'ws', // http | ws
   },
